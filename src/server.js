@@ -1,5 +1,5 @@
 import express from "express";
-import shortenRoutes from "../routes/shortenRoutes.js";
+import shortenRoutes from "./routes/shortenRoutes.js";
 
 const app = express();
 
