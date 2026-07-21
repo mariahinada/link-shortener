@@ -1,5 +1,5 @@
 import { customAlphabet } from "nanoid";
-import { createLink } from "../repositories/linkRepository.js";
+import { createLink, findLinkByCode } from "../repositories/linkRepository.js";
 
 const generateCode = customAlphabet(
   "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -15,4 +15,9 @@ export async function shortenUrl(url) {
   });
 
   return link;
+}
+
+export async function getOriginalUrl(shortCode) {
+  const link = await findLinkByCode(shortCode);
+  return link?.originalUrl;
 }

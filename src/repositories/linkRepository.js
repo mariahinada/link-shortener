@@ -5,3 +5,11 @@ export async function createLink(linkData) {
         data: linkData,
     });
 }
+
+export async function findLinkByCode(shortCode) {
+    return prisma.link.findUnique({
+        where: {
+            shortCode
+        }
+    });
+}
